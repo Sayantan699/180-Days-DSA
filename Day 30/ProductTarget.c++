@@ -24,7 +24,7 @@ int main()
         cin >> arr[i];
     }
 
-    // sorting the array
+    // selection sorting the array
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = i + 1; j < n; j++)
