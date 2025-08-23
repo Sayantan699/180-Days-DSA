@@ -35,5 +35,12 @@ int main()
         cout << endl;
     }
 
+    // Release the memory from heap
+    for (int i = 0; i < row; i++)
+    {
+        delete[] ptr[i];
+    }
+    delete[] ptr;
+
     return 0;
 }
