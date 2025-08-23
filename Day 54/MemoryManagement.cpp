@@ -7,7 +7,7 @@ int main()
     *ptr = 50;          // value assignment
     cout << *ptr << endl;
 
-    float *ptr2 = new float;
+    float *ptr2 = new float; // dynamic memory allocation
     *ptr2 = 69.8;
     cout << *ptr2;
 
@@ -17,7 +17,7 @@ int main()
     cout << "Enter the value of n: ";
     cin >> n;
 
-    int *p = new int[n];
+    int *p = new int[n]; // dynamic memory allocation
 
     // assigning values
     for (int i = 0; i < n; i++)
