@@ -51,6 +51,14 @@ int main()
     }
 
     // Release the memory
-
+    for (int i = 0; i < L; i++)
+    {
+        for (int j = 0; j < B; j++)
+        {
+            delete[] ptr[i][j];
+        }
+        delete[] ptr[i];
+    }
+    delete[] ptr;
     return 0;
 }
