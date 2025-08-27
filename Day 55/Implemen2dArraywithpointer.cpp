@@ -38,9 +38,9 @@ int main()
     // Release the memory from heap
     for (int i = 0; i < row; i++)
     {
-        delete[] ptr[i];
+        delete[] ptr[i]; // at first release the memory of the 1d array containing numbers from 2d array
     }
-    delete[] ptr;
+    delete[] ptr; // then the main pointer
 
     return 0;
 }
