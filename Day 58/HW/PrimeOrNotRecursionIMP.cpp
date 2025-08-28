@@ -3,21 +3,33 @@
 #include <iostream>
 using namespace std;
 
-bool IsPrime(int n)
+bool IsPrimeHelper(int n, int i)
 {
+    if (i * i > n)
+    {
+        return false;
+    }
+    if (n % i == 0)
+    {
+        return false;
+    }
 
+    return IsPrimeHelper(n, i + 1);
+}
+
+bool isPrime(int n)
+{
+    if (n < 2)
+    {
+        return false;
+    }
     if (n == 2)
     {
         return true;
     }
-    int i = 3;
-    if (n % i != 0)
-    {
-        i++;
-        IsPrime(n - 1);
-    }
-    return false;
+    return IsPrimeHelper(n - 1, 2);
 }
+
 int main()
 {
     int n;
