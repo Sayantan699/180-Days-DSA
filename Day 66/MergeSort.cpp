@@ -1,3 +1,7 @@
+// T.C - O(n * log n)
+
+// S.C - O(n)
+
 #include <iostream>
 #include <vector>
 using namespace std;
