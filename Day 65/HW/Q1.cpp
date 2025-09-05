@@ -8,5 +8,5 @@ int fact(int n)
     return n * fact(n - 1); // Recursive step
 }
 
-// TC :- O(n)
-// SC :- O(1)
+// TC :- O(n) //constant work is done i.e
+// SC :- O(n) coz at most n function call i.e n size stack
