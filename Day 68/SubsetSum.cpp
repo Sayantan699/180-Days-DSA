@@ -5,7 +5,7 @@ void SubsetSum(int arr[], int ind, int n, int sum)
 {
     if (ind == n)
     {
-        cout << sum << " "; // print with space
+        cout << sum << " ";
         return;
     }
 
