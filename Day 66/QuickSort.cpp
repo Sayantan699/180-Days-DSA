@@ -5,7 +5,7 @@ using namespace std;
 int partition(vector<int> &arr, int start, int end)
 {
 
-    int pivot = arr[end];
+    int pivot = arr[end]; // assuming the pivot at last ind of arr
     int pos = start;
     for (int i = start; i < end; i++)
     {
