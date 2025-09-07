@@ -4,12 +4,12 @@ using namespace std;
 void rotatearrtoright(int arr[], int end)
 {
 
-    if (end == 0)
+    if (end == 0) // Base condition when end pointer points to the first index..
     {
         return;
     }
 
-    swap(arr[end], arr[end - 1]);
+    swap(arr[end], arr[end - 1]); // traversing from right to left and swapping each
 
     rotatearrtoright(arr, end - 1);
 }
