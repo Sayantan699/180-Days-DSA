@@ -19,9 +19,9 @@ void permute(int arr[], vector<vector<int>> &ans, vector<int> &temp, vector<bool
             temp.push_back(arr[i]);
 
             permute(arr, ans, temp, visited);
-
-            visited[i] = 0;
-            temp.pop_back();
+            // undo the choice so that other permutations can be formed
+            visited[i] = 0;  // reusing the element for other permutations
+            temp.pop_back(); // restoring temp for next iterations
         }
     }
 }
@@ -54,9 +54,9 @@ int main()
     permute(arr, ans, temp, visited);
 
     cout << "All the Sub arrays possible are:- " << endl;
-    for (int i = 0; i < ans.size(); i++)
+    for (int i = 0; i < ans.size(); i++) // Use ans.size() for number of permutations.
     {
-        for (int j = 0; j < ans[i].size(); j++) //
+        for (int j = 0; j < ans[i].size(); j++) // Use ans[i].size() for number of elements inside that permutation
         {
             cout << ans[i][j] << " ";
         }
