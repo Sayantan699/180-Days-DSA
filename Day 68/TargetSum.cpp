@@ -9,6 +9,8 @@ bool targetsum(int arr[], int ind, int n, int target)
     if (ind == n || target < 0)
         return 0;
     return targetsum(arr, ind + 1, n, target) || targetsum(arr, ind + 1, n, target - arr[ind]);
+    // If the element is not included in the sub array - targetsum(arr, ind + 1, n, target)
+    // If the element is included in the sub array - targetsum(arr, ind + 1, n, target - arr[ind])
 }
 
 int main()
