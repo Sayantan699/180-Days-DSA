@@ -14,14 +14,14 @@ using namespace std;
 
 void permuteString(string str, string temp, vector<string> &ans, vector<bool> &visited, int n)
 {
-    if (temp.size() == visited.size())
+    if (temp.size() == visited.size()) // if size of temp becomes equal to size of original string we break the recursive tree
     {
         ans.push_back(temp);
         return;
     }
     for (int i = 0; i < n; i++)
     {
-        if (visited[i])
+        if (visited[i]) // If the character is already visited check for the next character
             continue;
 
         // checking if the prev and current character is same or not
@@ -30,7 +30,7 @@ void permuteString(string str, string temp, vector<string> &ans, vector<bool> &v
             continue;
 
         visited[i] = 1;
-        permuteString(str, temp + str[i], ans, visited, n);
+        permuteString(str, temp + str[i], ans, visited, n); // storing each unique character in temp sub string
         visited[i] = 0;
     }
 }
@@ -46,13 +46,13 @@ int main()
 
     vector<string> ans;
     string temp;
-    vector<bool> visited(n, 0);
+    vector<bool> visited(n, 0); // Vector which keeps the check for visited characters
 
     permuteString(str, temp, ans, visited, n);
 
     for (int i = 0; i < ans.size(); i++)
     {
-        for (int j = 0; j < ans[i].size(); j++)
+        for (int j = 0; j < ans[i].size(); j++) // Use ans[i].size() for number of elements inside that permutation
         {
             cout << ans[i][j];
         }
