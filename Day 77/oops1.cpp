@@ -15,10 +15,21 @@ public:
     // Function getter and setter
     void setname(string s)
     {
+        if (s.size() == 0)
+        {
+            cout << "Invalid name!!";
+            return;
+        }
+
         name = s;
     }
     void setage(int a)
     {
+        if (age < 0 || age > 100)
+        {
+            cout << "Invalid age!!";
+            return;
+        }
         age = a;
     }
 
