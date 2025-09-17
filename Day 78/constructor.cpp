@@ -26,6 +26,14 @@ public:
         this->balance = balance;
     }
 
+    // Copy Constructor
+    Customer(Customer &B)
+    {
+        name = B.name;
+        acc_number = B.acc_number;
+        balance = B.balance;
+    }
+
     void display()
     {
         cout << name << " " << acc_number << " " << balance << endl;
@@ -37,7 +45,11 @@ int main()
     Customer A1; // Object is being formed!!
     A1.display();
 
-    Customer A2;
-    ;
+    Customer A2("Sayantan Halder", 680, 7202); // passing the parametrs value
+
     A2.display();
+
+    Customer A3(A2);
+
+    A3.display();
 }
