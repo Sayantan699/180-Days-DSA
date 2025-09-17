@@ -25,12 +25,13 @@ public:
     }
     void setage(int a)
     {
+
+        age = a;
         if (age < 0 || age > 100)
         {
             cout << "Invalid age!!";
             return;
         }
-        age = a;
     }
 
     // To print the values
