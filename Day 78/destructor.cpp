@@ -30,9 +30,10 @@ int main()
     Student A1; // A1 is a stack object i.e automcatically cleanup no need to write delete A1
     // dynamically created object
 
-    Student *A2 = new Student; // A2 is a heap object..Needs to cleanup manually coz compiler doesnt know when its work ended..
+    Student *A2 = new Student;
+    // A2 is a heap object..Needs to cleanup manually coz compiler doesnt know when its work ended..
 
-    delete[] data; // Have to call destructor dynamically for this else memory leak will occur
+    delete A2; // Have to call destructor dynamically for this else memory leak will occur
 
     return 0;
 }
