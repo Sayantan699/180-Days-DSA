@@ -32,6 +32,8 @@ public:
             balance += amount;
             total_balance += amount;
         }
+        else
+            cout << "Invalid amount!!";
     }
 
     void withdraw(int amount)
@@ -41,6 +43,8 @@ public:
             balance -= amount;
             total_balance -= amount;
         }
+        else
+            cout << "Invalid amount!!";
     }
 
     void display()
@@ -61,5 +65,6 @@ int main()
     A1.display();
     A2.display();
     A1.deposit(2000);
+    A2.withdraw(4000);
     A2.accstatic();
 }
