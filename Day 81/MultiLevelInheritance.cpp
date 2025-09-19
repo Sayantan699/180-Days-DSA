@@ -23,6 +23,17 @@ public:
     {
         cout << "The monthly salary is: " << salary << endl;
     }
+
+    // salary is protected to manipulate it we need getter and setter..
+    int getsalary()
+    {
+        return salary;
+    }
+
+    int setsalary(int newsalary)
+    {
+        salary = newsalary;
+    }
 };
 
 class Manager : public Employee
@@ -53,4 +64,8 @@ int main()
 
     A1.monthlysalary();
     A1.introduce();
+
+    A1.setsalary(60000); // Salary modified
+
+    A1.monthlysalary();
 };
