@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <exception>
+#include <new> //header for std::bad_alloc
 using namespace std;
 
 int main()
@@ -7,12 +8,12 @@ int main()
 
     try
     {
-        int *p = new int[1000000000]; // Bad Allocation
+        int *p = new int[2147452462]; // Bad Allocation
         cout << "Memory Allocated!!" << endl;
         delete[] p;
     }
-    catch (const exception &e)
-    {                                              // The type of exception is handled by keyword "exception"
-        cout << "Exception occured: " << e.what(); // gives  human readable description of the exception.
+    catch (const bad_alloc &e)
+    {                                                             // The type of exception is handled by keyword "exception"
+        cout << "Exception occured due to line 10: " << e.what(); // gives  human readable description of the exception.
     }
 }
