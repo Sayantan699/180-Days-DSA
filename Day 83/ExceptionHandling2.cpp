@@ -12,7 +12,7 @@ int main()
         delete[] p;
     }
     catch (const exception &e)
-    { // The type of exception is handled by keyword "exception"
-        cout << "Exception occured: " << e.what();
+    {                                              // The type of exception is handled by keyword "exception"
+        cout << "Exception occured: " << e.what(); // gives  human readable description of the exception.
     }
 }
