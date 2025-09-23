@@ -38,50 +38,45 @@ int main()
     int value = 60; // New Node value
 
     Node *Head = NULL;
-    Node *tail = NULL;
 
+    // Convert the Array into LL
     for (int i = 0; i < n; i++)
     {
         if (Head == NULL)
         {
             Head = new Node(arr[i]);
-            tail = Head;
         }
         else
         {
-            tail->next = new Node(arr[i]);
-            tail = tail->next;
+            Node *temp = Head;
+            while (temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            temp->next = new Node(arr[i]);
         }
     }
 
-    if (x == 1)
+    Node *temp = Head;
+    int steps = x - 1; // move to (x-1)th node
+
+    while (--steps && temp != NULL)
+    {
+        temp = temp->next;
+    }
+
+    if (temp != NULL)
     {
         Node *temp2 = new Node(value);
-        temp2->next = Head;
-        Head = temp2;
+        temp2->next = temp->next;
+        temp->next = temp2;
     }
     else
     {
-        Node *temp = Head;
-        int steps = x - 1; // move to (x-1)th node
-        while (--steps && temp != NULL)
-        {
-            temp = temp->next;
-        }
-
-        if (temp != NULL)
-        {
-            Node *temp2 = new Node(value);
-            temp2->next = temp->next;
-            temp->next = temp2;
-        }
-        else
-        {
-            cout << "Position out of range!" << endl;
-        }
+        cout << "Position out of range!" << endl;
     }
 
-    // Printing the LL
+    // print LL
     Node *temp1 = Head;
     while (temp1 != NULL)
     {
