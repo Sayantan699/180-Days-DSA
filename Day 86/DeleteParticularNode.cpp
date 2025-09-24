@@ -6,7 +6,6 @@ class Node
 public:
     int data;
     Node *next;
-    Node *prev;
 
     Node(int value)
     {
@@ -52,12 +51,18 @@ int main()
 
     // Delete Node At Particular Position
 
-    int x;
-    cout << "Enter the position to be deleted: ";
-    cin >> x;
-
     if (Head != NULL) // Base Case 1: check if LL  exist or not..
     {
+        int x;
+        cout << "Enter the position to be deleted: ";
+        cin >> x;
+
+        if (x < 0 || x > n)
+        {
+            cout << "Invalid Position";
+            return 0;
+        }
+
         if (Head->next == NULL)
         { // Base Case 2: Check if LL contains only 1 node
             Node *tmp = Head;
@@ -66,18 +71,27 @@ int main()
         }
         else
         {
-            Node *ptr = Head;
-            Node *prev = NULL;
-            x--;
-            while (x--)
-            {
-                prev = ptr;
-                ptr = ptr->next;
+            if (x == 1)
+            { // user want to delete the first Node
+                Node *tmp = Head;
+                Head = tmp->next;
+                delete tmp;
             }
-            // Now ptr is pointing to positon x and prev to position x-1;
+            else
+            {
+                Node *ptr = Head;
+                Node *prev = NULL;
+                x--;
+                while (x--)
+                {
+                    prev = ptr;
+                    ptr = ptr->next;
+                }
+                // Now ptr is pointing to positon x and prev to position x-1;
 
-            prev->next = ptr->next; // Before deleting ptr point prev to next node of ptr
-            delete ptr;
+                prev->next = ptr->next; // Before deleting ptr point prev to next node of ptr
+                delete ptr;
+            }
         }
     }
 
