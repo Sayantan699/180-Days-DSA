@@ -49,7 +49,7 @@ int main()
 
     cout << endl;
 
-    Node *Head = CreateLL(arr, n, 0);
+    Node *Head = CreateLL(arr, n, 0, NULL);
 
     Node *ptr = Head;
 
