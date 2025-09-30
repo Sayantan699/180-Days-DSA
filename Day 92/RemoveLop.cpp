@@ -41,6 +41,39 @@ Node *CreateCLL(int arr[], int size)
     return head;
 }
 
+void RemoveLoop(Node *head)
+{
+    if (head == NULL)
+        return;
+
+    Node *slow = head;
+    Node *fast = head;
+    while (fast != NULL && fast->next != NULL)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+            break;
+    }
+    if (fast == NULL || fast->next == NULL)
+    { // i.e its not a circular LL
+        return;
+    }
+    slow = head;
+    while (slow != fast)
+    {
+        slow = slow->next;
+        fast = fast->next;
+    }
+
+    while (slow->next != fast)
+    {
+        slow = slow->next;
+    }
+
+    slow->next = NULL;
+}
+
 int main()
 {
     int n;
