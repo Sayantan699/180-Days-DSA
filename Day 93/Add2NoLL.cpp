@@ -22,6 +22,7 @@ public:
     Node(int value)
     {
         data = value;
+        next = NULL;
     }
 };
 
@@ -64,7 +65,7 @@ int main()
     }
 
     cout << "Enter the elements of array2: ";
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n2; i++)
     {
         cin >> arr2[i];
     }
@@ -96,7 +97,7 @@ int main()
     cout << "NULL" << endl;
 
     cout << "2nd Linked List: ";
-    Node *ptr2 = Head;
+    Node *ptr2 = Head2;
     while (ptr2 != NULL)
     {
         cout << ptr2->data << "->";
@@ -112,6 +113,58 @@ int main()
     {
         cout << revptr2->data << "->";
         revptr2 = revptr2->next;
+    }
+    cout << "NULL" << endl;
+
+    Node *curr1 = Head;
+    Node *curr2 = Head2;
+
+    Node *head = new Node(0); // head and tail pointing to dummy node 0
+    Node *tail = head;
+
+    int carry = 0;
+    while (curr1 && curr2)
+    {
+        int sum = curr1->data + curr2->data + carry;
+        tail->next = new Node(sum % 10);
+        tail = tail->next;
+        curr1 = curr1->next;
+        curr2 = curr2->next;
+        carry = sum / 10;
+    }
+
+    while (curr1)
+    {
+        int sum = curr1->data + carry;
+        tail->next = new Node(sum % 10);
+        tail = tail->next;
+        curr1 = curr1->next;
+        carry = sum / 10;
+    }
+
+    while (curr2)
+    {
+        int sum = curr2->data + carry;
+        tail->next = new Node(sum % 10);
+        tail = tail->next;
+        curr2 = curr2->next;
+        carry = sum / 10;
+    }
+
+    while (carry)
+    {
+        tail->next = new Node(carry % 10);
+        carry = carry / 10;
+    }
+
+    head = ReverseLL(head->next, NULL);
+
+    cout << "Final Linked List after sum: ";
+    Node *sumptr = head;
+    while (sumptr != NULL)
+    {
+        cout << sumptr->data << "->";
+        sumptr = sumptr->next;
     }
     cout << "NULL" << endl;
 
