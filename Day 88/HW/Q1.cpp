@@ -15,17 +15,17 @@ public:
     }
 };
 
-Node *CreateDLL(int arr[], int ind, int size, Node *prevNode)
-{
-    if (ind < 0)
-    {
-        return NULL;
-    }
-    Node *temp = new Node(arr[ind]);
-    temp->prev = prevNode;
-    temp->next = CreateDLL(arr, ind - 1, size, temp);
-    return temp;
-}
+// Node *CreateDLL(int arr[], int ind, int size, Node *prevNode)
+// {
+//     if (ind < 0)
+//     {
+//         return NULL;
+//     }
+//     Node *temp = new Node(arr[ind]);
+//     temp->prev = prevNode;
+//     temp->next = CreateDLL(arr, ind - 1, size, temp);
+//     return temp;
+// }
 
 int main()
 {
@@ -51,20 +51,20 @@ int main()
     cout << endl;
 
     // Iterative Approach
-    // Node *Head = new Node(arr[0]);
+    Node *Head = new Node(arr[0]);
 
-    // Node *curr = Head;
+    for (int i = 1; i < n; i++)
+    {
 
-    // for (int i = 1; i < n; i++)
-    // {
+        Node *temp = new Node(arr[i]);
+        temp->next = Head;
+        if (Head != NULL)
+            Head->prev = temp;
 
-    //     Node *temp = new Node(arr[i]);
-    //     curr->next = temp;
-    //     temp->prev = curr;
-    //     curr = temp;
-    // }
+        Head = temp;
+    }
 
-    Node *Head = CreateDLL(arr, n - 1, n, NULL);
+    // Node *Head = CreateDLL(arr, n - 1, n, NULL);
 
     cout << "The Doubly Linked List is: ";
     Node *ptr = Head;
