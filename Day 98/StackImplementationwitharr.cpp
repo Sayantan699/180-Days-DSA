@@ -3,16 +3,18 @@ using namespace std;
 
 class Stack
 {
+public:
     int *arr;
     int size;
     int top;
+    bool flag;
 
-public:
     Stack(int s)
     {
         size = s;
         top = -1;
         arr = new int[s];
+        flag = 1; // flag denotes if stack is empty or not if flag becomes 0 i.e stack is not empty
     }
 
     // Push
@@ -28,6 +30,7 @@ public:
             top++;
             arr[top] = value;
             cout << "Pushed " << value << " into the stack\n";
+            flag = 0;
         }
     }
 
@@ -36,6 +39,7 @@ public:
     {
         if (top == -1)
         {
+            flag = 1;
             cout << "Stack Underflow";
             return;
         }
@@ -81,10 +85,12 @@ int main()
     s.push(6);
     s.push(7);
     s.push(39);
+    s.push(-2);
+    s.push(-1);
     s.pop();
     cout << "Top element: " << s.peek() << endl;
     cout << "Current size: " << s.stack_size() << endl;
-    if (s.isEmpty())
+    if (s.isEmpty() && s.flag == 1)
         cout << "Stack is empty!!";
     else
         cout << "Stack is not empty!!";
