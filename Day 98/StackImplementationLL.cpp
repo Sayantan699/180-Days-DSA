@@ -3,7 +3,7 @@ using namespace std;
 
 class Node
 {
-
+public:
     Node *next;
     int data;
 
@@ -12,11 +12,12 @@ class Node
         data = value;
         next = NULL;
     }
-}
+};
 
 class Stack
 {
-    int top;
+public:
+    Node *top;
     int size; // size is denoting the actual stack size
 
     Stack()
@@ -34,20 +35,59 @@ class Stack
             cout << "Stack Overflow!\n";
             return;
         }
+
         temp->next = top;
         top = temp;
         size++;
+        cout << "Pushed " << top->data << " in the stack\n";
     }
 
     void Pop()
     {
-        Node *temp = top;
-        top = top->next;
-        delete temp;
-        size--;
+        if (top == NULL)
+        {
+            cout << "Stack Underflow!\n";
+            return;
+        }
+        else
+        {
+            Node *temp = top;
+            cout << "Popped " << top->data << " from the stack\n";
+            top = top->next;
+            delete temp;
+            size--;
+        }
+    }
+
+    int peek()
+    {
+        if (top == NULL)
+        {
+            cout << "Stack is Empty\n";
+            return -1;
+        }
+        else
+            return top->data;
+    }
+
+    bool isEmpty()
+    {
+        return top == NULL;
+    }
+
+    int IsSize()
+    {
+        return size;
     }
 };
 
 int main()
 {
+    Stack S;
+    S.Push(5);
+    S.Push(8);
+    S.Push(9);
+    S.Pop();
+    cout << "Top element: " << S.peek() << endl;
+    cout << "Current size: " << S.IsSize() << endl;
 }
