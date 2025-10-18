@@ -77,5 +77,6 @@ int main(){
     q.enqueue(5);
     q.enqueue(6);
     q.dequeue();
-    cout << q.start() << endl;
+    if(!q.isEmpty())
+        cout << q.start() << endl;
 }
