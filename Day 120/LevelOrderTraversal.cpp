@@ -28,7 +28,7 @@ class Solution {
             
             for(int i=0;i<size;i++){
                 Node* curr = q.front();//getting the front element of queue and checking its left and  right node
-                q.pop(); 
+                
                 
                 level.push_back(curr -> data);
                 
@@ -37,6 +37,8 @@ class Solution {
                     
                 if(curr -> right)
                     q.push(curr -> right);
+
+                q.pop(); 
                 
             }
             result.push_back(level);
