@@ -26,12 +26,12 @@ vector<vector<int>> verticalTraversal(TreeNode* root) {
         value → another map where:
 
         key (int y) → level (depth)
-        value (multiset<int>) → all node values that exist at that (x, y) position
+        value (multiset<int>) → all node values that exist at that (x, y) position if overlapping nodes store in sorted order
         */
 
         while(!q.empty()){
 
-            auto temp = q.front(); //why we are using auto here? --> That means each element of q is of type: pair<TreeNode*, pair<int,int>>
+            auto temp = q.front(); //why we are using auto here? --> each element of q is of type: pair<TreeNode*, pair<int,int>>
             /*
             q.front() returns a reference to the first element of that queue,
             which is of type pair<TreeNode*, pair<int,int>>& and not TreeNode* itself.
