@@ -22,7 +22,7 @@ class Solution {
         if(root == NULL)
             return ans;
         queue<pair<Node*,int>>q; //queue contains Node and its corresponding vertical index
-        map<int,int> mpp; //map contains the vertical index and the corresponding node
+        map<int,int> mpp; //map contains the vertical index and the corresponding node’s data
         q.push({root,0}); //at first pushing the root node and its vertical ind which is 0 
         
         
