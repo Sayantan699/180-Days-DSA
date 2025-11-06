@@ -32,7 +32,7 @@ class Solution {
             Node* node = temp.first; //the node
             int vertical_ind = temp.second; //the vertical index of node
             
-            if(mpp.find(vertical_ind) == mpp.end()) 
+            if(mpp.find(vertical_ind) == mpp.end()) //Ensures we only store the first (topmost) node for each vertical index
                 mpp[vertical_ind] = node -> data;
             
             if(node -> left)
