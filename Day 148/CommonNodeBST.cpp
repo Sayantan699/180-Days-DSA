@@ -31,6 +31,7 @@ public:
             r2 = r2->left;
         }
 
+        // traverse both trees
         while (!s1.empty() && !s2.empty()) {
 
             Node* a = s1.top();   // always compare stack top
