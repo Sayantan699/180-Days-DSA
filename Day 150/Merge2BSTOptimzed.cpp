@@ -36,6 +36,7 @@ class Solution {
         
         vector<int> ans;
         int i=0,j=0;
+        //merging both the sorted arrays
         while(i < ans1.size() && j < ans2.size()){
             if(ans1[i] < ans2[j])
                 ans.push_back(ans1[i++]);
