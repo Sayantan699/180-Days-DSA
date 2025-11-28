@@ -31,13 +31,13 @@ class Solution{
                 if(last && last -> data > present -> data){
                     if(!first) // checking if we are at first violation as if it will be second violation then first will not be null
                         first = last;
-                    last = present; 
+                    second = present; 
                 }
                 root = root -> right; // move to right child
             }
             else{ // left child exists
                 curr = root -> left;
-                while(curr && curr -> right == NULL){
+                while(curr -> right && curr -> right != NULL){
                     curr = curr -> right;
                 }
                 if(!curr -> right){
