@@ -1,3 +1,5 @@
+// Tc - O(NlogN) + O(N) , Sc - O(N)
+
 #include <bits/stdc++.h>
 using namespace std;
 class Node
